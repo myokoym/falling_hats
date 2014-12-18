@@ -33,14 +33,14 @@ module FallingHats
           hat.warp(rand(@window.width), 0)
           @hats << hat
         end
-        @hats.each do |ball|
-          ball.update
+        @hats.each do |hat|
+          hat.update
           if Gosu.distance(@player.x, @player.y, ball.x, ball.y) < @window.width / 20
             @score += 1
             @hats.delete(ball)
           end
         end
-        @hats.reject! {|ball| ball.y > @window.height}
+        @hats.reject! {|hat| hat.y > @window.height}
       end
 
       def draw
