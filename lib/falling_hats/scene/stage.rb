@@ -9,7 +9,8 @@ module FallingHats
         @window = window
         @font_size = @window.height / 10
         @font = Gosu::Font.new(@window, Gosu.default_font_name, @font_size)
-        @player = Entity::Player.new(@window, @window.width / 2, @window.height * 0.9)
+        @player = Entity::Player.new(@window)
+        @player.warp(@window.width / 2, @window.height * 0.9)
         @hats = []
         @fall_interval = 30
         @score = 0
@@ -23,7 +24,9 @@ module FallingHats
         return if @pause
         @time = "%0.1f" % (Time.now - @start_time)
         if rand(@fall_interval) == 0
-          @hats << Entity::Hat.new(@window, rand(@window.width), 0)
+          hat = Entity::Hat.new(@window)
+          hat.warp(rand(@window.width), 0)
+          @hats << hat
         end
         @player.update
         @hats.each do |ball|

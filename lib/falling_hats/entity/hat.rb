@@ -1,13 +1,13 @@
 require "gosu"
+require "falling_hats/entity/base"
 
 module FallingHats
   module Entity
     class Hat
-      attr_reader :x, :y
-      def initialize(window, x, y, options={})
-        @window = window
-        @x = x
-        @y = y
+      include Base
+
+      def initialize(window, options={})
+        super(window)
         @radius   = options[:radius]   || @window.width * 0.03
         @movement = options[:movement] || @window.width * 0.005
         @color    = options[:color]    || Gosu::Color::GRAY
