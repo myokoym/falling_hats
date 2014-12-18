@@ -1,0 +1,6 @@
+require "falling_hats/version"
+require "falling_hats/game"
+require "falling_hats/title"
+require "falling_hats/stage"
+require "falling_hats/player"
+require "falling_hats/hat"
