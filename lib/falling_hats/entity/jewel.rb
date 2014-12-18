@@ -1,5 +1,3 @@
-require "gosu"
-
 module FallingHats
   module Entity
     module Jewel
