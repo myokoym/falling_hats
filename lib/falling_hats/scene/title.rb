@@ -1,6 +1,7 @@
 require "gosu"
 
 module FallingHats
+  module Scene
   class Title
     def initialize(window)
       @window = window
@@ -52,5 +53,6 @@ module FallingHats
         @window.exit
       end
     end
+  end
   end
 end

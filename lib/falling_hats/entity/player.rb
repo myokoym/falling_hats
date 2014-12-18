@@ -1,6 +1,7 @@
 require "gosu"
 
 module FallingHats
+  module Entity
   class Player
     attr_reader :x, :y, :angle
     def initialize(window, x, y, options={})
@@ -90,5 +91,6 @@ module FallingHats
                             x3, y3, @color,
                             @z_order)
     end
+  end
   end
 end

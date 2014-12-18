@@ -1,6 +1,7 @@
 require "gosu"
 
 module FallingHats
+  module Entity
   class Hat
     attr_reader :x, :y
     def initialize(window, x, y, options={})
@@ -55,5 +56,6 @@ module FallingHats
                         x1, y2, color,
                         @z_order)
     end
+  end
   end
 end

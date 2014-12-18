@@ -7,8 +7,8 @@ If you are using Linux, please see https://github.com/jlnr/gosu/wiki/Getting-Sta
   END_OF_MESSAGE
   exit(false)
 end
-require "falling_hats/title"
-require "falling_hats/stage"
+require "falling_hats/scene/title"
+require "falling_hats/scene/stage"
 
 module FallingHats
   class Game < Gosu::Window
@@ -21,7 +21,7 @@ module FallingHats
     def initialize(width=640, height=480, fullscreen=false)
       super(width, height, fullscreen)
       self.caption = "Falling Hats"
-      @stage = Title.new(self)
+      @stage = Scene::Title.new(self)
     end
 
     def update
@@ -37,11 +37,11 @@ module FallingHats
     end
 
     def start
-      @stage = Stage.new(self)
+      @stage = Scene::Stage.new(self)
     end
 
     def return_title
-      @stage = Title.new(self)
+      @stage = Scene::Title.new(self)
     end
 
     def exit

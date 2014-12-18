@@ -1,14 +1,15 @@
 require "gosu"
-require "falling_hats/player"
-require "falling_hats/hat"
+require "falling_hats/entity/player"
+require "falling_hats/entity/hat"
 
 module FallingHats
+  module Scene
   class Stage
     def initialize(window)
       @window = window
       @font_size = @window.height / 10
       @font = Gosu::Font.new(@window, Gosu.default_font_name, @font_size)
-      @player = Player.new(@window, @window.width / 2, @window.height * 0.9)
+      @player = Entity::Player.new(@window, @window.width / 2, @window.height * 0.9)
       @hats = []
       @fall_interval = 30
       @score = 0
@@ -22,7 +23,7 @@ module FallingHats
       return if @pause
       @time = "%0.1f" % (Time.now - @start_time)
       if rand(@fall_interval) == 0
-        @hats << Hat.new(@window, rand(@window.width), 0)
+        @hats << Entity::Hat.new(@window, rand(@window.width), 0)
       end
       @player.update
       @hats.each do |ball|
@@ -61,5 +62,6 @@ module FallingHats
         @window.return_title
       end
     end
+  end
   end
 end
