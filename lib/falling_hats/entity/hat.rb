@@ -12,6 +12,16 @@ module FallingHats
         @movement = options[:movement] || @window.width * 0.005
         @color    = options[:color]    || Gosu::Color::GRAY
         @z_order  = options[:z_order]  || 1
+        @burn = false
+      end
+
+      def burn?
+        @burn
+      end
+
+      def burn!
+        @color = Gosu::Color::RED
+        @burn = true
       end
 
       def update
