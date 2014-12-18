@@ -23,12 +23,16 @@ module FallingHats
       def update
         return if @pause
         @time = "%0.1f" % (Time.now - @start_time)
+        @player.update
+        update_hats
+      end
+
+      def update_hats
         if rand(@fall_interval) == 0
           hat = Entity::Hat.new(@window)
           hat.warp(rand(@window.width), 0)
           @hats << hat
         end
-        @player.update
         @hats.each do |ball|
           ball.update
           if Gosu.distance(@player.x, @player.y, ball.x, ball.y) < @window.width / 20
