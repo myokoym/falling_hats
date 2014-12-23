@@ -1,4 +1,5 @@
 require "gosu"
+require "falling_hats/background/stage"
 require "falling_hats/entity/player"
 require "falling_hats/entity/hat"
 require "falling_hats/entity/bullet"
@@ -8,6 +9,7 @@ module FallingHats
     class Stage
       def initialize(window)
         @window = window
+        @background = Background::Stage.new(window)
         @font_size = @window.height / 10
         @font = Gosu::Font.new(@window, Gosu.default_font_name, @font_size)
         @player = Entity::Player.new(@window)
@@ -76,6 +78,7 @@ module FallingHats
       end
 
       def draw
+        @background.draw
         if @pause
           x = @window.width / 2 - @font_size
           y = @window.height / 2 - @font_size / 2
