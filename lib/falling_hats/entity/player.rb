@@ -49,6 +49,7 @@ module FallingHats
 
       def move_to_left?
         @window.button_down?(Gosu::KbLeft) or
+         @window.button_down?(Gosu::KbH) or
          @window.button_down?(Gosu::MsLeft) or
          @window.button_down?(Gosu::GpLeft) or
          @window.button_down?(Gosu::GpButton4)
@@ -56,6 +57,7 @@ module FallingHats
 
       def move_to_right?
         @window.button_down?(Gosu::KbRight) or
+         @window.button_down?(Gosu::KbL) or
          @window.button_down?(Gosu::MsRight) or
          @window.button_down?(Gosu::GpRight) or
          @window.button_down?(Gosu::GpButton5)
