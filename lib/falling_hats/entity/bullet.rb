@@ -1,3 +1,5 @@
+require "falling_hats/z_order"
+
 module FallingHats
   module Entity
     class Bullet
@@ -10,7 +12,7 @@ module FallingHats
         @movement = @window.width * 0.015
         @color = Gosu::Color::RED
         @angle = angle
-        @z_order = 1  # TODO
+        @z_order = ZOrder::ENTITY
       end
 
       def move

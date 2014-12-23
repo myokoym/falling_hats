@@ -1,5 +1,6 @@
 require "gosu"
 require "falling_hats/entity/base"
+require "falling_hats/z_order"
 
 module FallingHats
   module Entity
@@ -11,7 +12,7 @@ module FallingHats
         @radius   = options[:radius]   || @window.width * 0.03
         @movement = options[:movement] || @window.width * 0.005
         @color    = options[:color]    || Gosu::Color::GRAY
-        @z_order  = options[:z_order]  || 1
+        @z_order  = options[:z_order]  || ZOrder::ENTITY
         @burn = false
       end
 

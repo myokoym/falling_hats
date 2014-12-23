@@ -3,6 +3,7 @@ require "falling_hats/background/stage"
 require "falling_hats/entity/player"
 require "falling_hats/entity/hat"
 require "falling_hats/entity/bullet"
+require "falling_hats/z_order"
 
 module FallingHats
   module Scene
@@ -82,13 +83,13 @@ module FallingHats
         if @pause
           x = @window.width / 2 - @font_size
           y = @window.height / 2 - @font_size / 2
-          @font.draw("pause", x, y, 10)
+          @font.draw("pause", x, y, ZOrder::MESSAGE)
         end
         @player.draw
         @hats.each {|hat| hat.draw}
         @bullets.each {|bullet| bullet.draw}
-        @font.draw("score: #{@score}", 0, 0, 1)
-        @font.draw("time: #{@time}", 0, @font_size, 1)
+        @font.draw("score: #{@score}", 0, 0, ZOrder::INFO)
+        @font.draw("time: #{@time}", 0, @font_size, ZOrder::INFO)
       end
 
       def button_down(id)
