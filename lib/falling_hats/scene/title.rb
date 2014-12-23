@@ -1,10 +1,12 @@
 require "gosu"
+require "falling_hats/background/stage"
 
 module FallingHats
   module Scene
     class Title
       def initialize(window)
         @window = window
+        @background = Background::Stage.new(window)
 
         @title_font_size = @window.width / 5
         @title = Gosu::Image.from_text(@window,
@@ -34,6 +36,7 @@ module FallingHats
       end
 
       def draw
+        @background.draw
         @title.draw(0, @window.height * 0.3,
                     1,
                     1.0, 1.0,
